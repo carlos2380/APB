@@ -1,0 +1,61 @@
+﻿<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             BackgroundColor="{StaticResource YellowColor}"
+             Title="Avisos"
+             x:Class="Xamagram.Views.AvisoView">
+  <ListView
+            ItemsSource="{Binding Items}"
+            SelectedItem="{Binding SelectedItem, Mode=TwoWay}"
+            IsRefreshing="{Binding IsBusy, Mode=OneWay}"
+            IsPullToRefreshEnabled="True"
+            VerticalOptions = "FillAndExpand"
+            HorizontalOptions = "Center"
+            RowHeight="115"
+            RefreshCommand="{Binding RefreshCommand}">
+
+    <ListView.ItemTemplate
+      VerticalOptions = "FillAndExpand">
+      <DataTemplate>
+        <ViewCell>
+          <Frame
+            OutlineColor="{StaticResource GrayColor}"
+            BackgroundColor="{StaticResource BackgroundColor}"
+            Margin="12">
+          <Grid
+            VerticalOptions = "FillAndExpand">
+            <Grid.RowDefinitions>
+              <RowDefinition Height="Auto" />
+              <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+              <ColumnDefinition Width="Auto" />
+              <ColumnDefinition Width="Auto" />
+            </Grid.ColumnDefinitions>
+              <Label
+                Grid.Row="0" Grid.Column="0" 
+                FontSize="Large"
+                TextColor="{StaticResource AccentColor}"
+                Margin="12,0"
+                Text="{Binding Tipo}"/>
+              <Label
+                    Grid.Row="1" Grid.Column="0" 
+                    FontSize="Small"
+                TextColor="{StaticResource BlackColor}"
+                    Margin="12,0"
+                    Text="{Binding Descripcion}"/>
+              <Label
+                    VerticalOptions = "FillAndExpand"
+                    HorizontalOptions = "Center"
+                    Margin="12,0"
+                    Grid.Row="0" Grid.Column="1"
+                    Grid.ColumnSpan="2"
+                    FontSize="Large"
+                    TextColor="{StaticResource RedColor}"
+                    Text="{Binding Cerrado}"/>
+           </Grid>
+           </Frame>
+        </ViewCell>
+      </DataTemplate>
+    </ListView.ItemTemplate>
+  </ListView>
+</ContentPage>

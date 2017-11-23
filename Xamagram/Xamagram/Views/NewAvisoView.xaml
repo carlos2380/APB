@@ -1,0 +1,83 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             Title="Crear Aviso"
+             BackgroundColor="{StaticResource BackgroundColor}"
+             x:Class="Xamagram.Views.NewAvisoView">
+  <ContentPage.ToolbarItems>
+    <ToolbarItem
+      Text="Save"
+      Command="{Binding SaveCommand}">
+      <ToolbarItem.Icon>
+        <OnPlatform
+          x:TypeArguments="FileImageSource"
+          Android="ic_save_white_48dp.png">
+          
+        </OnPlatform>
+      </ToolbarItem.Icon>
+    </ToolbarItem>
+  </ContentPage.ToolbarItems>
+  <ScrollView
+    Padding="20,20,20,20">
+    <Grid>
+      <Grid.RowDefinitions>
+        <RowDefinition Height="Auto" />
+        <RowDefinition Height="Auto" />
+        <RowDefinition Height="Auto" />
+      </Grid.RowDefinitions>
+      <StackLayout
+          Grid.Row="0">
+        <Label
+            Text="Tipo"
+            TextColor="{StaticResource AccentColor}"
+            FontSize="Large"/>
+        <Picker x:Name="Picker"  SelectedIndex="{Binding Tipo, Mode=TwoWay}" HorizontalOptions="FillAndExpand">
+          <Picker.Items>
+            <x:String>Otro</x:String>
+            <x:String>Pelea Domestica</x:String>
+            <x:String>Robo</x:String>
+            <x:String>Secuestro</x:String>
+            <x:String>Tiroteo</x:String>
+            <x:String>Asesinato</x:String>
+            <x:String>Terrorismo</x:String>
+            <x:String>Atropello y fuga</x:String>
+          </Picker.Items>
+        </Picker>
+      </StackLayout>
+      <StackLayout
+        Margin="0,20,0,0"
+          Grid.Row="1">
+        <Label
+        Text="Información"
+        TextColor="{StaticResource AccentColor}"
+        FontSize="Large"/>
+        <Editor
+        HeightRequest="100"
+        Text="{Binding Descripcion, Mode=TwoWay}"/>
+      </StackLayout>
+      <Grid
+        Margin="0,20,0,0"
+          HeightRequest="250"
+          Grid.Row="2">
+        <Image
+          Source="{Binding UriFoto}"/>
+        <Grid.GestureRecognizers>
+          <TapGestureRecognizer 
+            Command="{Binding CameraCommand}"
+            NumberOfTapsRequired="1"/>
+         </Grid.GestureRecognizers>
+        <!--<Label
+            Text="Image"
+            TextColor="Blue"
+            FontSize="Small"/>
+        <Image
+            HeightRequest="150"
+            Source="{Binding UriFoto}"
+            Aspect="AspectFit"/>
+        <Button
+            Text="Take Picture"
+            Command="{Binding CameraCommand}"/>-->
+      </Grid>
+    </Grid>
+  </ScrollView>
+</ContentPage>

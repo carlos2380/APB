@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Xamagram.Views.Templates.AvisoTemplate">
+    <ContentView.Resources>
+      <ResourceDictionary>
+        <Style x:key="AvisoTipoStyle" TargetType="Label">
+          <Setter Property="FontSize" Value="Large"/>
+          <Setter Property="TextColor" Value="{StaticResource AccentColor}"/>
+          <Setter Property="Margin" Value="12, 0"/>
+        </Style>
+
+        <!--<Style x:key="AvisoDescStyle" TargetType="Label">
+          <Setter Property="FontSize" Value="Large"/>
+          <Setter Property="TextColor" Value="{StaticResource AccentColor}"/>
+          <Setter Property="Margin" Value="12, 0"/>
+        </Style>
+        <Style x:key="AvisoCerradoStyle" TargetType="Label">
+          <Setter Property="FontSize" Value="Small"/>
+          <Setter Property="TextColor" Value="{StaticResource RedColor}"/>
+          <Setter Property="Margin" Value="12, 0"/>
+        </Style>-->
+      </ResourceDictionary>
+    </ContentView.Resources>
+  <ContentView.Content>
+
+
+    <StackLayout Spacing="5">
+      <Grid>
+        <Grid.RowDefinitions>
+          <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+          <ColumnDefinition Width="Auto" />
+          <ColumnDefinition Width="Auto" />
+        </Grid.ColumnDefinitions>
+        <Label
+           Grid.Row="0" Grid.Column="0"
+          Text="{Binding Tipo}"
+                          />
+        <Label
+           Grid.Row="0" Grid.Column="1"
+          Text="{Binding Descripcion}"
+                        />
+      </Grid>
+      <Label Text="{Binding Tipo}"
+                       Style="{StaticResource AvisoTipoStyle}"/>
+    </StackLayout>
+
+  </ContentView.Content>
+</ContentView>
